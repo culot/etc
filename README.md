@@ -12,5 +12,7 @@ and I create links to the configuration files I want to use.
 
 For instance, to get my vim configuration:
 
+```
 cd ~
 ln -s ~/etc/.vim .
+```

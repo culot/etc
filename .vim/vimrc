@@ -379,6 +379,10 @@ nnoremap <F12> :TlistToggle<CR>
 " Do some autocompletion using omnicppcompletion
 inoremap <C-Space> <C-x><C-o>
 
+" Easier formatting of paragraphs (I never use ex-mode)
+vmap Q gq
+nmap Q gqap
+
 " style ------------------------------------------------------------- ,s ---
 " FreeBSD mapping to switch current buffer to style(9).  This is generally '\f'.
 nmap <silent> <Leader>sf :call FreeBSD_Style()<CR>

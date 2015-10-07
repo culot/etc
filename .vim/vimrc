@@ -13,7 +13,8 @@
 "   :se fdm=marker
 " and then zM or zR to close or open all folds
 "
-" Changelog:
+" Changelog {{{1
+"-----------------------------------------------------------------------------
 "   2012-06-29 - Creation
 "   2012-09-12 - Status line format added
 "   2012-10-10 - Default directory for swap files set
@@ -41,6 +42,8 @@
 "   2015-10-02 - Adapt colorscheme depending on if the gui is run or not
 "                Anonymize so that this config file could be uploaded to
 "                a public git repo
+"   2015-10-07 - Function to save session now takes a session name as
+"                input
 
 " Features {{{1
 "-----------------------------------------------------------------------------
@@ -300,9 +303,10 @@ function! s:mySessionDate()
 endfun
 
 function! MySaveCurrentSession()
-    let s:mySessionFileName = s:mySessionPath . s:mySessionDate() .  "-session.vim"
+    let l:mySessionName = input('Session name: ')
+    let s:mySessionFileName = s:mySessionPath . l:mySessionName . "-" . s:mySessionDate() .  ".vim"
     execute "mksession! " . s:mySessionFileName
-    echo "Session saved -> " . s:mySessionFileName
+    echo "\nSession saved -> " . s:mySessionFileName
 endfun
 
 " Function to print the tab number

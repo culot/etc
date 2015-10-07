@@ -304,9 +304,10 @@ endfun
 
 function! MySaveCurrentSession()
     let l:mySessionName = input('Session name: ')
-    let s:mySessionFileName = s:mySessionPath . l:mySessionName . "-" . s:mySessionDate() .  ".vim"
+    let s:mySessionFileName = s:mySessionPath . l:mySessionName . ".vim"
     execute "mksession! " . s:mySessionFileName
-    echo "\nSession saved -> " . s:mySessionFileName
+    redraw
+    echo "Session saved -> " . s:mySessionFileName
 endfun
 
 " Function to print the tab number

@@ -44,6 +44,8 @@
 "                a public git repo
 "   2015-10-07 - Function to save session now takes a session name as
 "                input
+"   2015-10-08 - Set a few variables such as t_Co, scrolloff, wildignore,...
+
 
 " Features {{{1
 "-----------------------------------------------------------------------------
@@ -104,6 +106,7 @@ set hidden
 
 " Better command-line completion
 set wildmenu
+set wildignore=*.o
 
 " Set how keyword completion works when using CTRL-N or CTRL_P
 " (only use words from buffers, no tag or include, this is done
@@ -202,6 +205,13 @@ set nocursorline
 " This is the list of hidden characters that will be displayed
 " when using ':set list' (see mappings)
 set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<,nbsp:_
+
+" Add a few lines around the cursor so that the context is easier to get
+set scrolloff=5
+
+" Apparently it helps with performance when executing macros
+set lazyredraw
+
 
 " Functions {{{1
 "-----------------------------------------------------------------------------
@@ -358,7 +368,6 @@ com! -nargs=1 RunAndPreview :call RunAndPreview("<args>")
 " Useful mappings
 
 " Set Leader to ","
-
 let mapleader = ","
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
@@ -387,6 +396,10 @@ inoremap <C-Space> <C-x><C-o>
 " Easier formatting of paragraphs (I never use ex-mode)
 vmap Q gq
 nmap Q gqap
+
+" move by row rather than by line
+nnoremap j gj
+nnoremap k gk
 
 " style ------------------------------------------------------------- ,s ---
 " FreeBSD mapping to switch current buffer to style(9).  This is generally '\f'.
@@ -527,11 +540,15 @@ set guioptions-=e  "use a console-stype tabs panel
 highlight Normal guibg=Black guifg=White
 set guifont=Source\ Code\ Pro\ Semibold\ 8  " use se guifont=* to open a window to choose font
 " set guifont=MiscFixed
+
 if has('gui_running')
+  set cursorline
   colorscheme mustang
 else
-  colorscheme desert
+  set t_Co=256
+  colorscheme mustang
 endif 
+
 
 " $Job-related {{{1
 "-----------------------------------------------------------------------------

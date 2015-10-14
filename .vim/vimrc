@@ -45,6 +45,8 @@
 "   2015-10-07 - Function to save session now takes a session name as
 "                input
 "   2015-10-08 - Set a few variables such as t_Co, scrolloff, wildignore,...
+"   2015-10-14 - Try a new shortcut to quickly save in insert mode, and
+"                prevent swap files from being created
 
 
 " Features {{{1
@@ -97,6 +99,7 @@ let s:mySessionPath = "~/bak/vim/sessions/"
 "
 " Set the default directory to store swap files
 set dir=~/bak/vim
+set noswapfile
 
 " One of the most important options to activate. Allows you to switch from an
 " unsaved buffer without saving it first. Also allows you to keep an undo
@@ -369,6 +372,10 @@ com! -nargs=1 RunAndPreview :call RunAndPreview("<args>")
 
 " Set Leader to ","
 let mapleader = ","
+
+" Use Ctrl+X to save file is edit and command modes
+inoremap <c-x> <c-o>:w<cr>
+nnoremap <c-x> :w<cr>
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search

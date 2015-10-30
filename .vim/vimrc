@@ -47,6 +47,8 @@
 "   2015-10-08 - Set a few variables such as t_Co, scrolloff, wildignore,...
 "   2015-10-14 - Try a new shortcut to quickly save in insert mode, and
 "                prevent swap files from being created
+"   2015-10-30 - New keybinding to quickly switch between light and dark
+"                background, and increase default font size. I'm getting old :'(
 
 
 " Features {{{1
@@ -323,6 +325,14 @@ function! MySaveCurrentSession()
     echo "Session saved -> " . s:mySessionFileName
 endfun
 
+function! MyToggleBackground()
+    if &background == "light" 
+        exe ":se bg=dark"
+    else
+        exe ":se bg=light"
+    endif
+endfun
+
 " Function to print the tab number
 if exists("+showtabline")
      function! MyTabLine()
@@ -421,6 +431,7 @@ nmap <silent> <Leader>so :call Own_Style()<CR>
 " Vim-related ------------------------------------------------------- ,v ---
 " save vim session (to be used with -S next time vim is launched)
 nmap <silent> <Leader>vs :call MySaveCurrentSession()<CR>
+nmap <silent> <Leader>vb :call MyToggleBackground()<CR>
 
 " White characters -------------------------------------------------- ,w ---
 " map the TabToggle function (switch between spaces and tabs)
@@ -545,12 +556,12 @@ set guioptions-=L  "remove left-hand scroll bar
 set guioptions-=b  "remove bottom scroll bar
 set guioptions-=e  "use a console-stype tabs panel
 highlight Normal guibg=Black guifg=White
-set guifont=Source\ Code\ Pro\ Semibold\ 8  " use se guifont=* to open a window to choose font
+set guifont=Source\ Code\ Pro\ Regular\ 10  " use se guifont=* to open a window to choose font
 " set guifont=MiscFixed
 
 if has('gui_running')
   set cursorline
-  colorscheme mustang
+  colorscheme solarized
 else
   set t_Co=256
   colorscheme mustang

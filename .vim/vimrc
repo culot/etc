@@ -49,6 +49,7 @@
 "                prevent swap files from being created
 "   2015-10-30 - New keybinding to quickly switch between light and dark
 "                background, and increase default font size. I'm getting old :'(
+"   2015-12-22 - A few variables added for netrw
 
 
 " Features {{{1
@@ -516,6 +517,18 @@ augroup END
 
 " Plugins {{{1
 "-----------------------------------------------------------------------------
+
+" netrw {{{2
+"-----------------------------------------------------------------------------
+" do not display info on top of netrw window
+let g:netrw_banner = 0
+
+" tree view
+let g:netrw_liststyle = 3
+
+" open tree on left
+let g:netrw_altv = 1
+
 
 " vimwiki {{{2
 "-----------------------------------------------------------------------------

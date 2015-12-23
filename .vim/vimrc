@@ -542,9 +542,10 @@ let g:netrw_altv = 1
 
 " unite {{{2
 "-----------------------------------------------------------------------------
-" Start in insert mode
 let g:unite_source_history_yank_enable=1
+let g:unite_source_rec_unit=1000
 let g:unite_source_rec_max_cache_files=5000
+let g:unite_redraw_hold_candidates=50000
 
 
 " vimwiki {{{2

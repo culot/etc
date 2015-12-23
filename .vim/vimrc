@@ -50,6 +50,7 @@
 "   2015-10-30 - New keybinding to quickly switch between light and dark
 "                background, and increase default font size. I'm getting old :'(
 "   2015-12-22 - A few variables added for netrw
+"   2015-12-23 - Bindings and configuration for Unite plugin added
 
 
 " Features {{{1
@@ -408,9 +409,6 @@ nmap <Leader>t :tj
 " Function-key mapping
 nnoremap <F12> :TlistToggle<CR>
 
-" Do some autocompletion using omnicppcompletion
-inoremap <C-Space> <C-x><C-o>
-
 " Easier formatting of paragraphs (I never use ex-mode)
 vmap Q gq
 nmap Q gqap
@@ -456,13 +454,26 @@ nmap <Leader>cvl :!cleartool lsco -me -a -short<CR>
 " _c_ompilation
 nmap <Leader>ccm mM :make<CR>
 nmap <Leader>cco :botright :copen 5<CR>
-nmap<Leader>ccc :cclose<CR>
+nmap <Leader>ccc :cclose<CR>
 nmap <Leader>ccn :cnext<CR>
 nmap <Leader>ccp :cprevious<CR>
 
 " generic (often used)
 nmap <Leader>ch :call SwitchSourceHeader()<CR>
 nmap <Leader>ct :!~/opt/bin/ctags -R --languages=c++ --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+" Unite --------------------------------------------------------- space ---
+nmap <Space> [unite]
+nnoremap [unite] <nop>
+
+nnoremap <silent> [unite]<space> :<C-u>Unite -start-insert -toggle -auto-resize -buffer-name=mixed file_rec/async:! buffer file_mru bookmark<cr><c-u>
+nnoremap <silent> [unite]f :<C-u>Unite -start-insert -toggle -auto-resize -buffer-name=files file_rec/async:!<cr><c-u>
+nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
+nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
+nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer file_mru<cr>
+nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
+nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
 
 
 " Indentation {{{1
@@ -528,6 +539,12 @@ let g:netrw_liststyle = 3
 
 " open tree on left
 let g:netrw_altv = 1
+
+" unite {{{2
+"-----------------------------------------------------------------------------
+" Start in insert mode
+let g:unite_source_history_yank_enable=1
+let g:unite_source_rec_max_cache_files=5000
 
 
 " vimwiki {{{2

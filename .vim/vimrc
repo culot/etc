@@ -51,6 +51,7 @@
 "                background, and increase default font size. I'm getting old :'(
 "   2015-12-22 - A few variables added for netrw
 "   2015-12-23 - Bindings and configuration for Unite plugin added
+"   2016-02-12 - Add a new style for c++ code
 
 
 " Features {{{1
@@ -255,6 +256,52 @@ function! SwitchSourceHeader()
   endif
 endfunction
 
+" Following style based on Google c++ style guidelines
+" https://github.com/vim-scripts/google.vim
+function! GoogleCppIndent()
+    let l:cline_num = line('.')
+
+    let l:orig_indent = cindent(l:cline_num)
+
+    if l:orig_indent == 0 | return 0 | endif
+
+    let l:pline_num = prevnonblank(l:cline_num - 1)
+    let l:pline = getline(l:pline_num)
+    if l:pline =~# '^\s*template' | return l:pline_indent | endif
+
+    if l:orig_indent != &shiftwidth | return l:orig_indent | endif
+
+    let l:in_comment = 0
+    let l:pline_num = prevnonblank(l:cline_num - 1)
+    while l:pline_num > -1
+        let l:pline = getline(l:pline_num)
+        let l:pline_indent = indent(l:pline_num)
+
+        if l:in_comment == 0 && l:pline =~ '^.\{-}\(/\*.\{-}\)\@<!\*/'
+            let l:in_comment = 1
+        elseif l:in_comment == 1
+            if l:pline =~ '/\*\(.\{-}\*/\)\@!'
+                let l:in_comment = 0
+            endif
+        elseif l:pline_indent == 0
+            if l:pline !~# '\(#define\)\|\(^\s*//\)\|\(^\s*{\)'
+                if l:pline =~# '^\s*namespace.*'
+                    return 0
+                else
+                    return l:orig_indent
+                endif
+            elseif l:pline =~# '\\$'
+                return l:orig_indent
+            endif
+        else
+            return l:orig_indent
+        endif
+
+        let l:pline_num = prevnonblank(l:pline_num - 1)
+    endwhile
+
+    return l:orig_indent
+endfunction
 
 " Following style taken from /usr/src/tools/tools/editing/freebsd.vim
 
@@ -294,6 +341,19 @@ function! Job_Style()
     setlocal cinoptions=(0,u0
     setlocal expandtab
     let g:myStatusStyle="job"
+endfun
+
+" Style for c++
+function! Cpp_Style()
+    setlocal shiftwidth=2
+    setlocal tabstop=2
+    setlocal softtabstop=2
+    setlocal expandtab
+    setlocal textwidth=80
+    setlocal wrap
+    setlocal cindent
+    setlocal cinoptions=h1,l1,g1,t0,i4,+4,(0,w1,W4
+    setlocal indentexpr=GoogleCppIndent()
 endfun
 
 " Define own style to revert to normal
@@ -420,6 +480,9 @@ nnoremap k gk
 " style ------------------------------------------------------------- ,s ---
 " FreeBSD mapping to switch current buffer to style(9).  This is generally '\f'.
 nmap <silent> <Leader>sf :call FreeBSD_Style()<CR>
+
+" mapping to use for C++
+nmap <silent> <Leader>sc :call Cpp_Style()<CR>
 
 " mapping to switch current buffer to $job style
 nmap <silent> <Leader>sj :call Job_Style()<CR>

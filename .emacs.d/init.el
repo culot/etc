@@ -2,8 +2,9 @@
 
 (defvar my-dir-root (expand-file-name "~/.emacs.d/"))
 (defvar my-dir-etc (concat my-dir-root "etc/"))
+(defvar my-dir-lib (concat my-dir-root "lib/"))
 (defvar my-dir-var (concat my-dir-root "var/"))
-(defvar my-dir-opt (concat my-dir-var "opt/"))
+(defvar my-dir-opt (concat my-dir-root "opt/"))
 (defvar my-dir-bak (concat my-dir-var "bak/"))
 (defvar my-dir-eshell (concat my-dir-var "eshell/"))
 
@@ -26,6 +27,10 @@
 (require 'my-editor)
 (require 'my-ui)
 (require 'my-eshell)
+(require 'my-snippets)
+(require 'my-ide)
 
 ; Late requires
 (require 'my-keybindings)
+(require 'my-sessions)
+(require 'my-custom)

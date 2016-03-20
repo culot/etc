@@ -11,6 +11,13 @@
   ; packages
   async              ; make it faster
   powerline          ; better status bar
+;  sr-speedbar        ; same-frame speedbar
+  workgroups2        ; manage sessions
+  yasnippet          ; yet another snippet extension
+
+  ; ide
+  projectile         ; project interaction library
+  ecb                ; emacs code browser
   
   ; color themes:
   solarized-theme

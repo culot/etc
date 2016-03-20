@@ -14,4 +14,17 @@
 
 (display-time-mode 1)
 
+;(require 'sr-speedbar)
+;(setq
+;   speedbar-use-images nil
+;   sr-speedbar-right-side t
+;   sr-speedbar-width 20
+;   sr-speedbar-width-console 20
+;   sr-speedbar-max-width 20
+;   sr-speedbar-auto-refresh t
+;   speedbar-initial-expansion-list-name "buffers")
+;(make-face 'speedbar-face)
+;(set-face-font 'speedbar-face "DejaVu Sans Mono-6")
+;(setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
+
 (provide 'my-ui)

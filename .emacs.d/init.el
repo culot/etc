@@ -7,13 +7,13 @@
 (defvar my-dir-opt (concat my-dir-root "opt/"))
 (defvar my-dir-bak (concat my-dir-var "bak/"))
 (defvar my-dir-eshell (concat my-dir-var "eshell/"))
+(defvar my-dir-semantic (concat my-dir-var "semantic/"))
+(defvar my-dir-projectile (concat my-dir-var "projectile/"))
 
 (unless (file-exists-p my-dir-var)
   (make-directory my-dir-var t))
-
 (unless (file-exists-p my-dir-opt)
   (make-directory my-dir-opt t))
-
 (unless (file-exists-p my-dir-bak)
   (make-directory my-dir-bak t))
 

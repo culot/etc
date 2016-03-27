@@ -11,16 +11,26 @@
   ; packages
   async              ; make it faster
   powerline          ; better status bar
+  spaceline          ; add-ons for powerline
 ;  sr-speedbar        ; same-frame speedbar
-  workgroups2        ; manage sessions
   yasnippet          ; yet another snippet extension
-
+  flycheck           ; on-the-fly syntax checking
+  company            ; auto completion
+  helm               ; completion and selection framework
+  tabbar             ; easily switch between buffers
+  symon              ; system monitor
+  
   ; ide
   projectile         ; project interaction library
+  helm-projectile    ; integrate projectile with helm
   ecb                ; emacs code browser
   
   ; color themes:
-  solarized-theme
+;  solarized-theme
+;  mustang-theme
+;  zenburn-theme
+;  ubuntu-theme
+  moe-theme
 ))
 
 (dolist (package package-list)

@@ -27,11 +27,11 @@
   ecb                ; emacs code browser
   
   ; color themes:
-;  solarized-theme
+  solarized-theme
 ;  mustang-theme
 ;  zenburn-theme
 ;  ubuntu-theme
-  moe-theme
+;  moe-theme
 ))
 
 (dolist (package package-list)

@@ -11,5 +11,6 @@
 
 ; code-related
 (define-key my-prefix (kbd "c c") 'compile)
+(define-key global-map (kbd "RET") 'newline-and-indent)
 
 (provide 'my-keybindings)

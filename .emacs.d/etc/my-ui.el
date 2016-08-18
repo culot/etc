@@ -1,6 +1,8 @@
 (menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
+(if (display-graphic-p)
+    (progn
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1)))
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-splash-screen t)
 
@@ -16,8 +18,8 @@
 (setq tabbar-use-images nil)
 (tabbar-mode)
 
-(require 'symon)
-(symon-mode)
+;(require 'symon)
+;(symon-mode)
 
 ;; solarized theme and configuration
 

@@ -14,9 +14,9 @@
 (require 'spaceline-config)
 (spaceline-spacemacs-theme)
 
-(require 'tabbar)
-(setq tabbar-use-images nil)
-(tabbar-mode)
+;(require 'tabbar)
+;(setq tabbar-use-images nil)
+;(tabbar-mode)
 
 ;(require 'symon)
 ;(symon-mode)

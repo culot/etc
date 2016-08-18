@@ -18,7 +18,7 @@
   company            ; auto completion
   helm               ; completion and selection framework
 ;  workgroups2        ; save sessions
-  tabbar             ; easily switch between buffers
+;  tabbar             ; easily switch between buffers
   symon              ; system monitor
   
   ; ide

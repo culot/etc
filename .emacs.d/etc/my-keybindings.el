@@ -2,8 +2,8 @@
 
 (global-set-key "\t" 'company-complete-common)
 
-(global-set-key [M-left] 'tabbar-backward-tab)
-(global-set-key [M-right] 'tabbar-forward-tab)
+;(global-set-key [M-left] 'tabbar-backward-tab)
+;(global-set-key [M-right] 'tabbar-forward-tab)
 
 (global-unset-key (kbd "C-0"))
 (define-prefix-command 'my-prefix)

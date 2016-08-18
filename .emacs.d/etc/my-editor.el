@@ -1,5 +1,7 @@
 ;; Options
 
+(keyboard-translate ?\C-h ?\C-?)
+
 (global-font-lock-mode t)
 (show-paren-mode t)
 (transient-mark-mode t)

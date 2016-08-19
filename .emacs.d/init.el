@@ -30,6 +30,9 @@
 (require 'my-snippets)
 (require 'my-ide)
 
+; Language-specific requires
+(require 'my-c++)
+
 ; Late requires
 (require 'my-keybindings)
 (require 'my-sessions)

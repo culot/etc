@@ -22,5 +22,6 @@
 
 ; code-related
 (define-key my-prefix (kbd "c c") 'compile)
+(define-key my-prefix (kbd "c w") 'global-whitespace-mode)
 
 (provide 'my-keybindings)

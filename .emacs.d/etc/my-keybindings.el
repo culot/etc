@@ -1,3 +1,6 @@
+; map backspace key for terminal
+(keyboard-translate ?\C-h ?\C-?)
+
 (windmove-default-keybindings) ; use S-arrows to move between windows
 ; also define prefixed arrow keys for better terminal support
 (global-set-key (kbd "C-c <left>")  'windmove-left)

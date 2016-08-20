@@ -9,16 +9,18 @@
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 
 (global-set-key "\t" 'company-complete-common)
+(define-key global-map (kbd "RET") 'newline-and-indent)
 
 ;(global-set-key [M-left] 'tabbar-backward-tab)
 ;(global-set-key [M-right] 'tabbar-forward-tab)
 
-(global-unset-key (kbd "C-0"))
+;; Use C-z as prefix key
+(global-unset-key (kbd "C-z"))
 (define-prefix-command 'my-prefix)
-(global-set-key (kbd "C-0") 'my-prefix)
+(global-set-key (kbd "C-z") 'my-prefix)
+(global-set-key (kbd "C-z C-z") 'suspend-frame)
 
 ; code-related
 (define-key my-prefix (kbd "c c") 'compile)
-(define-key global-map (kbd "RET") 'newline-and-indent)
 
 (provide 'my-keybindings)

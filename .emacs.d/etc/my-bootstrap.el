@@ -22,7 +22,7 @@
   symon              ; system monitor
   
   ; ide
-;  projectile         ; project interaction library
+  projectile         ; project interaction library
 ;  helm-projectile    ; integrate projectile with helm
 ;  ecb                ; emacs code browser
   

@@ -1,12 +1,12 @@
 ; quickly access a project's files
-; (require 'projectile)
-; (setq
-;    projectile-cache-file (concat my-dir-projectile "projectile.cache")
-;    projectile-known-projects-file (concat my-dir-projectile "projectile-bookmarks.eld"))
-; (when (not (file-exists-p my-dir-projectile))
-;   (make-directory my-dir-projectile))
-; (projectile-global-mode +1)
-; (setq projectile-enable-caching t)
+ (require 'projectile)
+ (setq
+    projectile-cache-file (concat my-dir-projectile "projectile.cache")
+    projectile-known-projects-file (concat my-dir-projectile "projectile-bookmarks.eld"))
+ (when (not (file-exists-p my-dir-projectile))
+   (make-directory my-dir-projectile))
+ (projectile-global-mode +1)
+ (setq projectile-enable-caching t)
 
 ; (require 'helm-config)
 ; (helm-mode 1)

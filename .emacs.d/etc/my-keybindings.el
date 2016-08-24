@@ -14,14 +14,20 @@
 ;(global-set-key [M-left] 'tabbar-backward-tab)
 ;(global-set-key [M-right] 'tabbar-forward-tab)
 
-;; Use C-z as prefix key
+;-------------------------------------------------- C-z prefix ---
 (global-unset-key (kbd "C-z"))
 (define-prefix-command 'my-prefix)
 (global-set-key (kbd "C-z") 'my-prefix)
 (global-set-key (kbd "C-z C-z") 'suspend-frame)
 
-; code-related
+;--------------------------------------- code-related prefix-c ---
 (define-key my-prefix (kbd "c c") 'compile)
 (define-key my-prefix (kbd "c w") 'global-whitespace-mode)
+
+;------------------------------------------- org-mode prefix-o ---
+(define-key my-prefix (kbd "o l") 'org-store-link)
+(define-key my-prefix (kbd "o a") 'org-agenda)
+(define-key my-prefix (kbd "o c") 'org-capture)
+(define-key my-prefix (kbd "o b") 'org-iswitchb)
 
 (provide 'my-keybindings)

@@ -23,6 +23,7 @@
   
   ; ide
   projectile         ; project interaction library
+  ggtags             ; indexer used by projectile
 ;  helm-projectile    ; integrate projectile with helm
 ;  ecb                ; emacs code browser
   

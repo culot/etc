@@ -7,6 +7,8 @@
    (make-directory my-dir-projectile))
  (projectile-global-mode +1)
  (setq projectile-enable-caching t)
+(add-to-list 'projectile-other-file-alist '("cc" "h"))
+(add-to-list 'projectile-other-file-alist '("h" "cc"))
 
 ; (require 'helm-config)
 ; (helm-mode 1)

@@ -7,6 +7,7 @@
 (defun my-c++-mode-hook ()
   (c-set-style "my-c++-style")
   (auto-fill-mode)
+  (ggtags-mode 1)
   (c-auto-newline nil)          ; disable newline when hitting {};
   (c-toggle-auto-hungry-state 1))
 

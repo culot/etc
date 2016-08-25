@@ -8,7 +8,7 @@
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 
-(global-set-key "\t" 'company-complete-common)
+;(global-set-key "\t" 'company-complete-common)
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 ;(global-set-key [M-left] 'tabbar-backward-tab)

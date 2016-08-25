@@ -20,6 +20,9 @@
 (global-set-key (kbd "C-z") 'my-prefix)
 (global-set-key (kbd "C-z C-z") 'suspend-frame)
 
+;-------------------------------------- C-z prefix + single key---
+(define-key my-prefix (kbd "w") 'switch-window)
+
 ;--------------------------------------- code-related prefix-c ---
 (define-key my-prefix (kbd "c c") 'compile)
 (define-key my-prefix (kbd "c w") 'global-whitespace-mode)

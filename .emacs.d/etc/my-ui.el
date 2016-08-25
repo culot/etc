@@ -16,6 +16,8 @@
 (require 'spaceline-config)
 (spaceline-spacemacs-theme)
 
+(require 'switch-window)
+
 ;(require 'tabbar)
 ;(setq tabbar-use-images nil)
 ;(tabbar-mode)

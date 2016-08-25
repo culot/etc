@@ -20,7 +20,8 @@
 ;  workgroups2        ; save sessions
 ;  tabbar             ; easily switch between buffers
   symon              ; system monitor
-  
+  switch-window      ; visual way to switch between windows
+
   ; ide
   projectile         ; project interaction library
   ggtags             ; indexer used by projectile

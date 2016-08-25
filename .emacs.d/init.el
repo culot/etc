@@ -27,7 +27,7 @@
 (require 'my-editor)
 (require 'my-ui)
 (require 'my-eshell)
-(require 'my-snippets)
+;(require 'my-snippets)
 (require 'my-ide)
 
 ; Language-specific requires

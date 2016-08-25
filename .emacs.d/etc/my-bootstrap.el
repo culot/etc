@@ -13,7 +13,7 @@
   powerline          ; better status bar
   spaceline          ; add-ons for powerline
 ;  sr-speedbar        ; same-frame speedbar
-  yasnippet          ; yet another snippet extension
+;  yasnippet          ; yet another snippet extension
   flycheck           ; on-the-fly syntax checking
   company            ; auto completion
   helm               ; completion and selection framework

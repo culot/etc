@@ -1,3 +1,7 @@
+(require 'ido)
+(setq ido-enable-flex-matching t)
+(ido-mode 1)
+
 ; quickly access a project's files
  (require 'projectile)
  (setq

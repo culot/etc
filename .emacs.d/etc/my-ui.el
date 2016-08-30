@@ -18,6 +18,11 @@
 
 (require 'switch-window)
 
+; Manage windows ala i3wm
+(eyebrowse-mode t)
+; Use optional keybindings to switch between workspaces with M-1..9
+(eyebrowse-setup-opinionated-keys)
+
 ;(require 'tabbar)
 ;(setq tabbar-use-images nil)
 ;(tabbar-mode)

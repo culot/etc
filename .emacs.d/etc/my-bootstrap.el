@@ -17,6 +17,7 @@
   flycheck           ; on-the-fly syntax checking
   company            ; auto completion
   helm               ; completion and selection framework
+  eyebrowse          ; manage windows ala i3wm
 ;  workgroups2        ; save sessions
 ;  tabbar             ; easily switch between buffers
   symon              ; system monitor

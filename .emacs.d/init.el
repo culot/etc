@@ -35,5 +35,4 @@
 
 ; Late requires
 (require 'my-keybindings)
-(require 'my-sessions)
 (require 'my-custom)

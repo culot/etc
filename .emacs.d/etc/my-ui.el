@@ -22,6 +22,8 @@
 (eyebrowse-mode t)
 ; Use optional keybindings to switch between workspaces with M-1..9
 (eyebrowse-setup-opinionated-keys)
+; Create new workspaces with scratch buffer (do not replicate previous one)
+(setq eyebrowse-new-workspace t)
 
 ;(require 'tabbar)
 ;(setq tabbar-use-images nil)

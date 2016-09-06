@@ -16,7 +16,8 @@
 (require 'spaceline-config)
 (spaceline-spacemacs-theme)
 
-(require 'switch-window)
+(require 'ace-window)
+(setq aw-background nil)
 
 ; Manage windows ala i3wm
 (eyebrowse-mode t)

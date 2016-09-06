@@ -16,7 +16,7 @@
 (global-set-key (kbd "C-z C-z") 'suspend-frame)
 
 ;-------------------------------------- C-z prefix + single key---
-(define-key my-prefix (kbd "w") 'switch-window)
+(define-key my-prefix (kbd "w") 'ace-window)
 
 ;--------------------------------------- code-related prefix-c ---
 (define-key my-prefix (kbd "c c") 'compile)

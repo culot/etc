@@ -21,14 +21,14 @@
 ;  workgroups2        ; save sessions
 ;  tabbar             ; easily switch between buffers
   symon              ; system monitor
-  switch-window      ; visual way to switch between windows
+  ace-window         ; visual way to switch between windows
 
   ; ide
   projectile         ; project interaction library
   ggtags             ; indexer used by projectile
 ;  helm-projectile    ; integrate projectile with helm
 ;  ecb                ; emacs code browser
-  
+
   ; color themes:
   solarized-theme
 ;  mustang-theme

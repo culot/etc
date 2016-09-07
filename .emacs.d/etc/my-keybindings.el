@@ -17,6 +17,7 @@
 
 ;-------------------------------------- C-z prefix + single key---
 (define-key my-prefix (kbd "w") 'ace-window)
+(define-key my-prefix (kbd "l") 'redraw-display)
 
 ;--------------------------------------- code-related prefix-c ---
 (define-key my-prefix (kbd "c c") 'compile)

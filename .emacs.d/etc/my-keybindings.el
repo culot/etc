@@ -10,13 +10,14 @@
 ;(global-set-key [M-right] 'tabbar-forward-tab)
 
 ;-------------------------------------------------- C-z prefix ---
-(global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "M-q"))
 (define-prefix-command 'my-prefix)
-(global-set-key (kbd "C-z") 'my-prefix)
-(global-set-key (kbd "C-z C-z") 'suspend-frame)
+(global-set-key (kbd "M-q") 'my-prefix)
+(global-set-key (kbd "M-q M-q") 'fill-paragraph)
 
 ;-------------------------------------- C-z prefix + single key---
 (define-key my-prefix (kbd "w") 'ace-window)
+(define-key my-prefix (kbd "M-w") 'ace-window)
 (define-key my-prefix (kbd "l") 'redraw-display)
 
 ;--------------------------------------- code-related prefix-c ---

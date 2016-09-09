@@ -31,6 +31,7 @@
 
   ; color themes:
   solarized-theme
+  color-theme-sanityinc-tomorrow
 ;  mustang-theme
 ;  zenburn-theme
 ;  ubuntu-theme

@@ -4,7 +4,7 @@
 (windmove-default-keybindings) ; use S-arrows to move between windows
 
 ;(global-set-key "\t" 'company-complete-common)
-(define-key global-map (kbd "RET") 'newline-and-indent)
+;(define-key global-map (kbd "RET") 'newline-and-indent)
 
 ;(global-set-key [M-left] 'tabbar-backward-tab)
 ;(global-set-key [M-right] 'tabbar-forward-tab)

@@ -43,7 +43,7 @@
 ;(setq solarized-use-more-italic t)
 
 ;(load-theme 'solarized-light t)
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 
 ;; moe theme and configuration
 ;(require 'moe-theme)
@@ -52,6 +52,9 @@
 ;(powerline-moe-theme)
 ;(setq moe-theme-highlight-buffer-id t)
 ;(moe-theme-set-color 'purple)
+
+;; highlight the current line
+(global-hl-line-mode +1)
 
 (setq display-time-day-and-date t
       display-time-24hr-format t

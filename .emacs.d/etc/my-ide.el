@@ -53,4 +53,7 @@
 ; syntax checking
 (global-flycheck-mode)
 
+; display current function name in mode line
+(which-func-mode 1)
+
 (provide 'my-ide)

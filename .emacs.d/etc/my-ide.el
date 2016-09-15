@@ -26,6 +26,9 @@
 (semantic-mode 1)
 (global-semanticdb-minor-mode 1)
 
+;; smart tab behavior - indent or complete
+(setq tab-always-indent 'complete)
+
 (setq semanticdb-default-save-directory my-dir-semantic)
 (when (not (file-exists-p semanticdb-default-save-directory))
   (make-directory semanticdb-default-save-directory))

@@ -36,6 +36,7 @@
 ;  zenburn-theme
 ;  ubuntu-theme
 ;  moe-theme
+  ample-theme
 ))
 
 (dolist (package package-list)

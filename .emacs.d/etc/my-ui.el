@@ -43,7 +43,7 @@
 ;(setq solarized-use-more-italic t)
 
 ;(load-theme 'solarized-light t)
-(load-theme 'solarized-light t)
+(load-theme 'ample-flat t)
 
 ;; moe theme and configuration
 ;(require 'moe-theme)

@@ -10,8 +10,7 @@
 (setq package-list '(
   ; packages
   async              ; make it faster
-  powerline          ; better status bar
-  spaceline          ; add-ons for powerline
+  smart-mode-line    ; better status bar
 ;  sr-speedbar        ; same-frame speedbar
 ;  yasnippet          ; yet another snippet extension
   flycheck           ; on-the-fly syntax checking

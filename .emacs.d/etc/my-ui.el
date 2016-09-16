@@ -11,10 +11,10 @@
 (set-frame-parameter (selected-frame) 'alpha '(95 50))
 (add-to-list 'default-frame-alist '(alpha 95 50))
 
-(require 'powerline)
-;(powerline-default-theme)
-(require 'spaceline-config)
-(spaceline-spacemacs-theme)
+; better modeline
+(setq sml/no-confirm-load-theme t)
+(setq sml/theme 'dark)
+(sml/setup)
 
 (require 'ace-window)
 (setq aw-background nil)

@@ -29,6 +29,7 @@
 ;  ecb                ; emacs code browser
 
   ; color themes:
+  rainbow-mode
   solarized-theme
   color-theme-sanityinc-tomorrow
 ;  mustang-theme

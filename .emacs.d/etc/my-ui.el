@@ -6,6 +6,10 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-splash-screen t)
 
+(setq scroll-margin 0
+      scroll-conservatively 100000
+      scroll-preserve-screen-position 1)
+
 (xterm-mouse-mode t)
 
 (set-frame-parameter (selected-frame) 'alpha '(95 50))

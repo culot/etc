@@ -16,8 +16,11 @@
 (add-to-list 'default-frame-alist '(alpha 95 50))
 
 ; better modeline
+(setq column-number-mode t)
 (setq sml/no-confirm-load-theme t)
-(setq sml/theme 'dark)
+(setq sml/shorten-directory t)
+(setq sml/shorten-modes t)
+(setq sml/mule-info nil)
 (sml/setup)
 
 (require 'ace-window)
@@ -47,7 +50,8 @@
 ;(setq solarized-use-more-italic t)
 
 ;(load-theme 'solarized-light t)
-(load-theme 'ample-flat t)
+;(load-theme 'ample-flat t)
+(load-theme 'melancholy t)
 
 ;; moe theme and configuration
 ;(require 'moe-theme)
@@ -58,10 +62,10 @@
 ;(moe-theme-set-color 'purple)
 
 ;; highlight the current line
-(global-hl-line-mode +1)
+;(global-hl-line-mode +1)
 
 (setq display-time-day-and-date t
-      display-time-24hr-format t
+      display-time-format "%F %R"
       display-time-default-load-average nil)
 (display-time-mode 1)
 

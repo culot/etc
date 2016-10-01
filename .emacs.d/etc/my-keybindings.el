@@ -26,6 +26,7 @@
 
 ;--------------------------------------- text-related prefix-t ---
 (define-key my-prefix (kbd "t f") 'auto-fill-mode)
+(define-key my-prefix (kbd "t s") 'flyspell-mode)
 
 ;------------------------------------------- org-mode prefix-o ---
 (define-key my-prefix (kbd "o l") 'org-store-link)

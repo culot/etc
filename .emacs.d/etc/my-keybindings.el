@@ -24,6 +24,9 @@
 (define-key my-prefix (kbd "c c") 'compile)
 (define-key my-prefix (kbd "c w") 'global-whitespace-mode)
 
+;--------------------------------------- text-related prefix-t ---
+(define-key my-prefix (kbd "t f") 'auto-fill-mode)
+
 ;------------------------------------------- org-mode prefix-o ---
 (define-key my-prefix (kbd "o l") 'org-store-link)
 (define-key my-prefix (kbd "o a") 'org-agenda)

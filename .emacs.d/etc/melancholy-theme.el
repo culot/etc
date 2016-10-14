@@ -611,7 +611,7 @@
    `(whitespace-space-after-tab  ((t (:foreground ,melancholy/gray :background "gray13"))))
    `(whitespace-space-before-tab ((t (:foreground ,melancholy/gray :background "gray14"))))
    `(whitespace-tab   ((t (:foreground ,melancholy/gray :background "grey15"))))
-   `(whitespace-trailing  ((t (:foreground ,melancholy/rb3 :background ,melancholy/bg :bold t))))
+   `(whitespace-trailing  ((t (:foreground ,melancholy/rb3 :background ,melancholy/bright-yellow :bold t))))
 
    ;; magit
    ;; new

@@ -65,7 +65,7 @@
 ;(global-hl-line-mode +1)
 
 (setq display-time-day-and-date t
-      display-time-format "%F %R"
+      display-time-format "%d/%m %R"
       display-time-default-load-average nil)
 (display-time-mode 1)
 

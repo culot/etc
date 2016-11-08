@@ -1,5 +1,8 @@
 ; Check that packages are all there and install them if needed
 
+; Note: in case this list changes, it might be necessary to use:
+;   M-x package-refresh-contents RET
+
 (require 'package)
 (setq package-user-dir my-dir-opt)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -25,6 +28,7 @@
   ; ide
   projectile         ; project interaction library
   ggtags             ; indexer used by projectile
+  magit              ; interface to Git
 ;  helm-projectile    ; integrate projectile with helm
 ;  ecb                ; emacs code browser
 

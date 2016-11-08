@@ -24,6 +24,9 @@
 (define-key my-prefix (kbd "c c") 'compile)
 (define-key my-prefix (kbd "c w") 'global-whitespace-mode)
 
+;---------------------------------------- git-related prefix-g ---
+(define-key my-prefix (kbd "g RET") 'magit-status)
+
 ;------------------------------------------- org-mode prefix-o ---
 (define-key my-prefix (kbd "o l") 'org-store-link)
 (define-key my-prefix (kbd "o a") 'org-agenda)

@@ -36,6 +36,7 @@
 ;--------------------------------------- text-related prefix-t ---
 (define-key my-prefix (kbd "t f") 'auto-fill-mode)
 (define-key my-prefix (kbd "t h") 'hl-line-mode)
+(define-key my-prefix (kbd "t r") 'rainbow-mode)
 (define-key my-prefix (kbd "t s") 'flyspell-mode)
 
 ;----------------------------------------- ui-related prefix-t ---

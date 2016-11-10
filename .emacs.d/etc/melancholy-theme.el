@@ -128,7 +128,7 @@
    ;; bar between windows
    `(vertical-border ((t (:background , "black" :foreground ,"black"))))
 
-   `(hl-line ((t (:background "#1f1f1f"))))
+   `(hl-line ((t (:background ,melancholy/region))))
 
    `(highlight-indentation-face ((t (:background ,melancholy/darkest-gray))))
 

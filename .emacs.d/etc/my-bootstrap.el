@@ -24,6 +24,7 @@
 ;  tabbar             ; easily switch between buffers
   symon              ; system monitor
   ace-window         ; visual way to switch between windows
+  neotree            ; directory tree
 
   ; ide
   projectile         ; project interaction library

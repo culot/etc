@@ -41,5 +41,6 @@
 
 ;----------------------------------------- ui-related prefix-t ---
 (define-key my-prefix (kbd "u k") 'eyebrowse-close-window-config)
+(define-key my-prefix (kbd "u t") 'neotree-toggle)
 
 (provide 'my-keybindings)

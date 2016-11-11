@@ -82,6 +82,10 @@
 ;(set-face-font 'speedbar-face "DejaVu Sans Mono-6")
 ;(setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
 
+(require 'neotree)
+(setq neo-smart-open t)
+(setq projectile-switch-project-action 'neotree-projectile-action)
+
 ; set fonts after the theme was loaded
 (add-to-list 'default-frame-alist
              '(font . "DejaVu Sans Mono-8"))

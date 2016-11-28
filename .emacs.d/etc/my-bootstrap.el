@@ -25,6 +25,7 @@
   symon              ; system monitor
   ace-window         ; visual way to switch between windows
   neotree            ; directory tree
+  diminish           ; simplify modeline display
 
   ; ide
   projectile         ; project interaction library

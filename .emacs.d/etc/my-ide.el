@@ -5,6 +5,15 @@
 ;;; Code:
 
 
+;; keybindings
+(bind-keys :prefix-map my-prefix-code
+	   :map my-prefix
+	   :prefix "c"
+	   ("c" . compile)
+	   ("w" . global-whitespace-mode))
+
+;; packages
+
 (use-package projectile
   :ensure t
   :defer t
@@ -55,7 +64,8 @@
 
 (use-package magit
   :ensure t
-  :defer t)
+  :bind (:map my-prefix-code
+	      ("g" . magit-status)))
 
 (provide 'my-ide)
 ;;; my-ide.el ends here

@@ -39,16 +39,15 @@
 (require 'diminish)
 (require 'bind-key)
 
-
 ;; Load personnal configuration
 (add-to-list 'load-path my-dir-etc)
 
+(require 'my-keybindings)
 (require 'my-editor)
 (require 'my-ui)
 (require 'my-eshell)
 (require 'my-ide)
 (require 'my-c++)
-(require 'my-keybindings)
 (require 'my-custom)
 
 (provide 'init)

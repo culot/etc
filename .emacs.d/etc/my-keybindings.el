@@ -1,46 +1,45 @@
-; map backspace key for terminal
+;;; my-keybindings.el -- Keyboard mapping
+
+;;; Commentary:
+
+;; bind-keys is used to set keybindings
+;; Package-specific bindings are defined using use-package,
+;; others are set here.
+
+;;; Code:
+
+
+;map backspace key for terminal
 (keyboard-translate ?\C-h ?\C-?)
 
-(windmove-default-keybindings) ; use S-arrows to move between windows
 
-;(global-set-key "\t" 'company-complete-common)
-;(define-key global-map (kbd "RET") 'newline-and-indent)
+(bind-keys :prefix-map my-prefix
+	   :prefix "M-q")
+(bind-keys :map my-prefix
+	   ("M-q" . fill-paragraph)
+	   ("k" . describe-personal-keybindings)
+	   ("l" . redraw-display))
 
-;(global-set-key [M-left] 'tabbar-backward-tab)
-;(global-set-key [M-right] 'tabbar-forward-tab)
-
-;-------------------------------------------------- M-q prefix ---
-(global-unset-key (kbd "M-q"))
-(define-prefix-command 'my-prefix)
-(global-set-key (kbd "M-q") 'my-prefix)
-(global-set-key (kbd "M-q M-q") 'fill-paragraph)
-
-;-------------------------------------- M-q prefix + single key---
-(define-key my-prefix (kbd "w") 'ace-window)
-(define-key my-prefix (kbd "M-w") 'ace-window)
-(define-key my-prefix (kbd "l") 'redraw-display)
-
-;--------------------------------------- code-related prefix-c ---
-(define-key my-prefix (kbd "c c") 'compile)
-(define-key my-prefix (kbd "c w") 'global-whitespace-mode)
-
-;---------------------------------------- git-related prefix-g ---
-(define-key my-prefix (kbd "g RET") 'magit-status)
-
+;
 ;------------------------------------------- org-mode prefix-o ---
-(define-key my-prefix (kbd "o l") 'org-store-link)
-(define-key my-prefix (kbd "o a") 'org-agenda)
-(define-key my-prefix (kbd "o c") 'org-capture)
-(define-key my-prefix (kbd "o b") 'org-iswitchb)
+(bind-keys :prefix-map my-prefix-org
+	   :map my-prefix
+	   :prefix "o"
+	   ("l" . org-store-link)
+	   ("a" . org-agenda)
+	   ("c" . org-capture)
+	   ("b" . org-iswitchb))
+
 
 ;--------------------------------------- text-related prefix-t ---
-(define-key my-prefix (kbd "t f") 'auto-fill-mode)
-(define-key my-prefix (kbd "t h") 'hl-line-mode)
-(define-key my-prefix (kbd "t r") 'rainbow-mode)
-(define-key my-prefix (kbd "t s") 'flyspell-mode)
+(bind-keys :prefix-map my-prefix-text
+	   :map my-prefix
+	   :prefix "t"
+	   ("f" . auto-fill-mode)
+	   ("h" . hl-line-mode)
+	   ("r" . rainbow-mode)
+	   ("s" . flyspell-mode))
 
-;----------------------------------------- ui-related prefix-t ---
-(define-key my-prefix (kbd "u k") 'eyebrowse-close-window-config)
-(define-key my-prefix (kbd "u t") 'neotree-toggle)
 
 (provide 'my-keybindings)
+;;; my-keybindings.el ends here

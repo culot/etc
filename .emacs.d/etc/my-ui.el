@@ -7,13 +7,23 @@
 ;;; Code:
 
 
+(bind-keys :prefix-map my-prefix-ui
+	   :map my-prefix
+	   :prefix "u")
+
 (use-package ace-window
   :ensure t
+  :bind (:map my-prefix
+	      ("w" . ace-window)
+	      ("M-w" . ace-window))
   :config
     (setq aw-background nil))
 
 (use-package eyebrowse
   :ensure t
+  :demand t
+  :bind (:map my-prefix-ui
+	      ("k" . eyebrowse-close-window-config))
   :config
     (eyebrowse-mode)
     (eyebrowse-setup-opinionated-keys)
@@ -32,7 +42,8 @@
 
 (use-package neotree
   :ensure t
-  :defer t
+  :bind (:map my-prefix-ui
+	      ("t" . neotree-toggle))
   :config
     (setq
        neo-smart-open t

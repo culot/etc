@@ -1,3 +1,43 @@
+;;; my-ui.el -- User interface configuration
+
+;;; Commentary:
+
+;; Here goes everything used to customize Emacs' appearance
+
+;;; Code:
+
+
+(use-package ace-window
+  :ensure t
+  :config
+    (setq aw-background nil))
+
+(use-package eyebrowse
+  :ensure t
+  :config
+    (eyebrowse-mode)
+    (eyebrowse-setup-opinionated-keys)
+    (setq eyebrowse-new-workspace t))
+
+(use-package smart-mode-line
+  :ensure t
+  :config
+    (setq
+      column-number-mode t
+      sml/no-confirm-load-theme t
+      sml/shorten-directory t
+      sml/shorten-modes t
+      sml/mule-info nil)
+    (sml/setup))
+
+(use-package neotree
+  :ensure t
+  :defer t
+  :config
+    (setq
+       neo-smart-open t
+       neo-theme 'nerd))
+  
 (menu-bar-mode -1)
 (if (display-graphic-p)
     (progn
@@ -15,76 +55,10 @@
 (set-frame-parameter (selected-frame) 'alpha '(95 50))
 (add-to-list 'default-frame-alist '(alpha 95 50))
 
-; better modeline
-(setq column-number-mode t)
-(setq sml/no-confirm-load-theme t)
-(setq sml/shorten-directory t)
-(setq sml/shorten-modes t)
-(setq sml/mule-info nil)
-(sml/setup)
-
-(require 'ace-window)
-(setq aw-background nil)
-
-; Manage windows ala i3wm
-(eyebrowse-mode t)
-; Use optional keybindings to switch between workspaces with M-1..9
-(eyebrowse-setup-opinionated-keys)
-; Create new workspaces with scratch buffer (do not replicate previous one)
-(setq eyebrowse-new-workspace t)
-
-;(require 'tabbar)
-;(setq tabbar-use-images nil)
-;(tabbar-mode)
-
-;(require 'symon)
-;(symon-mode)
-
-;; solarized theme and configuration
-
-;; make the fringe stand out from the background
-(setq solarized-distinct-fringe-background t)
-;; make the modeline high contrast
-(setq solarized-high-contrast-mode-line t)
-;; Use more italics
-;(setq solarized-use-more-italic t)
-
-;(load-theme 'solarized-light t)
-;(load-theme 'ample-flat t)
-(load-theme 'melancholy t)
-
-;; moe theme and configuration
-;(require 'moe-theme)
-; automatically change between light/dark depending on time of day
-;(require 'moe-theme-switcher)
-;(powerline-moe-theme)
-;(setq moe-theme-highlight-buffer-id t)
-;(moe-theme-set-color 'purple)
-
-;; highlight the current line
-;(global-hl-line-mode +1)
-
 (setq display-time-day-and-date t
       display-time-format "%d/%m %R"
       display-time-default-load-average nil)
 (display-time-mode 1)
-
-;(require 'sr-speedbar)
-;(setq
-;   speedbar-use-images nil
-;   sr-speedbar-right-side t
-;   sr-speedbar-width 20
-;   sr-speedbar-width-console 20
-;   sr-speedbar-max-width 20
-;   sr-speedbar-auto-refresh t
-;   speedbar-initial-expansion-list-name "buffers")
-;(make-face 'speedbar-face)
-;(set-face-font 'speedbar-face "DejaVu Sans Mono-6")
-;(setq speedbar-mode-hook '(lambda () (buffer-face-set 'speedbar-face)))
-
-(require 'neotree)
-(setq neo-smart-open t)
-(setq projectile-switch-project-action 'neotree-projectile-action)
 
 ; set fonts after the theme was loaded
 (add-to-list 'default-frame-alist
@@ -105,7 +79,7 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
-(require 'diminish)
-(diminish 'company-mode)
+(load-theme 'melancholy t)
 
 (provide 'my-ui)
+;;; my-ui.el ends here

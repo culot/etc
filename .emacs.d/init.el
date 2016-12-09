@@ -1,5 +1,10 @@
-; Set directory structure and create it if necessary
+;;; init.el -- Main configuration file
 
+;;; Commentary:
+
+;;; Code:
+
+;; Set directory structure and create it if necessary
 (defvar my-dir-root (expand-file-name "~/.emacs.d/"))
 (defvar my-dir-etc (concat my-dir-root "etc/"))
 (defvar my-dir-lib (concat my-dir-root "lib/"))
@@ -17,22 +22,34 @@
 (unless (file-exists-p my-dir-bak)
   (make-directory my-dir-bak t))
 
-; Then load configuration
+
+;; Iinitialize package framework
+(require 'package)
+(setq package-enable-at-startup nil)
+(setq package-user-dir my-dir-opt)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)
+(require 'bind-key)
+
+
+;; Load personnal configuration
 (add-to-list 'load-path my-dir-etc)
 
-; Early requires
-(require 'my-bootstrap)
-
-; Standard requires
 (require 'my-editor)
 (require 'my-ui)
 (require 'my-eshell)
-;(require 'my-snippets)
 (require 'my-ide)
-
-; Language-specific requires
 (require 'my-c++)
-
-; Late requires
 (require 'my-keybindings)
 (require 'my-custom)
+
+(provide 'init)
+;;; init.el ends here

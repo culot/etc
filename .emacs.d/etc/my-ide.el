@@ -1,59 +1,61 @@
-(require 'ido)
-(setq ido-enable-flex-matching t)
-(ido-mode 1)
+;;; my-ide.el --- development-related configuration
 
-; quickly access a project's files
- (require 'projectile)
- (setq
-    projectile-cache-file (concat my-dir-projectile "projectile.cache")
-    projectile-known-projects-file (concat my-dir-projectile "projectile-bookmarks.eld"))
- (when (not (file-exists-p my-dir-projectile))
-   (make-directory my-dir-projectile))
- (projectile-global-mode +1)
- (setq projectile-enable-caching t)
-(add-to-list 'projectile-other-file-alist '("cc" "h"))
-(add-to-list 'projectile-other-file-alist '("h" "cc"))
+;;; Commentary:
 
-; (require 'helm-config)
-; (helm-mode 1)
-; (setq projectile-completion-system 'helm)
-; (helm-projectile-on)
-; (setq projectile-switch-project-action 'helm-projectile)
+;;; Code:
 
-; enable completion
-(require 'semantic)
-(require 'semantic/bovine/gcc)
-(semantic-mode 1)
-(global-semanticdb-minor-mode 1)
 
-;; smart tab behavior - indent or complete
-(setq tab-always-indent 'complete)
+(use-package projectile
+  :ensure t
+  :defer t
+  :commands (projectile-global-mode)
+  :config
+    (setq
+      projectile-cache-file (concat my-dir-projectile "projectile.cache")
+      projectile-known-projects-file (concat my-dir-projectile "projectile-bookmarks.eld")
+      projectile-enable-caching t
+      projectile-switch-project-action 'neotree-projectile-action)
+    (when (not (file-exists-p my-dir-projectile))
+      (make-directory my-dir-projectile))
+    (add-to-list 'projectile-other-file-alist '("cc" "h"))
+    (add-to-list 'projectile-other-file-alist '("h" "cc")))
 
-(setq semanticdb-default-save-directory my-dir-semantic)
-(when (not (file-exists-p semanticdb-default-save-directory))
-  (make-directory semanticdb-default-save-directory))
+(use-package ido
+  :ensure t
+  :config
+    (setq ido-enable-flex-matching t)
+    (ido-mode 1))
 
-(add-hook 'after-init-hook 'global-company-mode)
+(use-package semantic
+  :ensure t
+  :defer t
+  :init (use-package semantic/bovine/gcc)
+  :functions global-semanticdb-minor-mode global-semantic-idle-scheduler-mode
+  :config
+    (semantic-mode 1))
 
-; code browser
-;(require 'ecb)
-;(setq
-; ecb-tree-buffer-style (quote ascii-guides)
-; ecb-layout-name "left8"
-; ecb-tip-of-the-day nil
-; ecb-windows-width 30
-; ecb-fix-window-size 'width
-; ecb-auto-activate t)
+(use-package company
+  :ensure t
+  :defer t
+  :diminish company-mode
+  :config
+    (global-company-mode)
+    (setq semanticdb-default-save-directory my-dir-semantic)
+    (when (not (file-exists-p semanticdb-default-save-directory))
+      (make-directory semanticdb-default-save-directory)))
 
-; (defconst my-ecb-font
-;           "DejaVu Sans Mono-6")
-; (set-face-font 'ecb-default-general-face my-ecb-font)
-; (set-face-font 'ecb-bucket-node-face my-ecb-font)
+(use-package flycheck
+  :ensure t
+  :defer t
+  :config (global-flycheck-mode))
 
-; syntax checking
-(global-flycheck-mode)
+(use-package which-func
+  :commands which-function-mode
+  :config (which-function-mode))
 
-; display current function name in mode line
-(which-func-mode 1)
+(use-package magit
+  :ensure t
+  :defer t)
 
 (provide 'my-ide)
+;;; my-ide.el ends here

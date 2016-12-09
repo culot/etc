@@ -16,8 +16,9 @@
 
 (use-package projectile
   :ensure t
-  :defer t
-  :commands (projectile-global-mode)
+  :diminish projectile-mode
+  :commands (projectile-global-mode projectile-compile-project)
+  :init (projectile-global-mode)
   :config
     (setq
       projectile-cache-file (concat my-dir-projectile "projectile.cache")

@@ -68,5 +68,7 @@
   :bind (:map my-prefix-code
 	      ("g" . magit-status)))
 
+(setq compilation-scroll-output 'first-error)
+
 (provide 'my-ide)
 ;;; my-ide.el ends here

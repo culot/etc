@@ -9,7 +9,9 @@
 
 (when (executable-find "global")
   (use-package ggtags
-    :defer t))
+    :defer t
+    :bind (:map my-prefix-code
+		("f" . ggtags-find-tag-regexp))))
 
 (c-add-style "my-c++-style"
 	     '("stroustrup"

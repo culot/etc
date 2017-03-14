@@ -17,4 +17,6 @@
     (require 'recentf)
     (recentf-mode 1))
 
+(when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
+
 (provide 'my-editor)

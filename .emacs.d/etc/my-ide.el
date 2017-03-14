@@ -48,6 +48,8 @@
   :ensure t
   :defer t
   :diminish company-mode
+  :bind (:map my-prefix
+              ([?\t] . company-complete-common))
   :config
     (global-company-mode)
     (setq semanticdb-default-save-directory my-dir-semantic)

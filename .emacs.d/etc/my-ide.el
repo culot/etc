@@ -28,7 +28,9 @@
     (when (not (file-exists-p my-dir-projectile))
       (make-directory my-dir-projectile))
     (add-to-list 'projectile-other-file-alist '("cc" "h"))
-    (add-to-list 'projectile-other-file-alist '("h" "cc")))
+    (add-to-list 'projectile-other-file-alist '("h" "cc"))
+    (add-to-list 'projectile-other-file-alist '("C" "h"))
+    (add-to-list 'projectile-other-file-alist '("h" "C")))
 
 (use-package ido
   :ensure t

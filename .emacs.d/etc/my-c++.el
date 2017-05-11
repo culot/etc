@@ -13,18 +13,14 @@
     :bind (:map my-prefix-code
 		("f" . ggtags-find-tag-regexp))))
 
-(c-add-style "my-c++-style"
-	     '("stroustrup"
-               (c-syntactic-indentation . 1)   ; automatic indentation
-	       (indent-tabs-mode . nil)        ; use spaces rather than tabs
-	       (c-basic-offset . 2)))          ; indent by two spaces
+(use-package google-c-style
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'c-mode-common-hook 'google-set-c-style))
 
 (defun my-c++-mode-hook ()
-  (c-set-style "my-c++-style")
-  (auto-fill-mode)
-  (ggtags-mode 1)
-  (c-auto-newline nil)          ; disable newline when hitting {};
-  (c-toggle-auto-hungry-state 1))
+  (ggtags-mode 1))
 
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 

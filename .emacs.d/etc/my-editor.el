@@ -8,6 +8,8 @@
 (setq auto-save-file-name-transforms `((".*",my-dir-bak t)))
 (setq backup-directory-alist (list (cons ".*" my-dir-bak)))
 
+(use-package helm
+  :bind (("M-x" . helm-M-x)))
 
 (when (locate-library "recentf")
   (setq recentf-save-file (expand-file-name "recentf" my-dir-var)

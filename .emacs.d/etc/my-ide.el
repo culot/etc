@@ -5,13 +5,6 @@
 ;;; Code:
 
 
-;; keybindings
-(bind-keys :prefix-map my-prefix-code
-	   :map my-prefix
-	   :prefix "c"
-	   ("c" . compile)
-	   ("w" . global-whitespace-mode))
-
 ;; packages
 
 (use-package projectile
@@ -68,9 +61,16 @@
   :config (which-function-mode))
 
 (use-package magit
-  :ensure t
-  :bind (:map my-prefix-code
-	      ("g" . magit-status)))
+  :ensure t)
+
+
+(defun my-magit-show-branch ()
+  "Show the current branch in the echo-area"
+  (interactive)
+  (let ((branch (magit-get-current-branch)))
+    (if branch
+        (progn (message "=> Current branch [%s]" (magit-get-current-branch)))
+      (user-error "There is no current git branch"))))
 
 (setq compilation-scroll-output 'first-error)
 (setq compilation-finish-function

@@ -20,7 +20,24 @@
 	   ("k" . describe-personal-keybindings)
 	   ("l" . redraw-display))
 
-;
+
+;--------------------------------------- code-related prefix-c ---
+(bind-keys :prefix-map my-prefix-code
+	   :map my-prefix
+	   :prefix "c"
+	   ("c" . compile)
+	   ("w" . global-whitespace-mode))
+
+
+;---------------------------------------- git-related prefix-g ---
+(bind-keys :prefix-map my-prefix-git
+	   :map my-prefix
+	   :prefix "g"
+	   ("g" . magit-status)
+	   ("RET" . magit-status)
+	   ("s" . my-magit-show-branch))
+
+
 ;------------------------------------------- org-mode prefix-o ---
 (bind-keys :prefix-map my-prefix-org
 	   :map my-prefix

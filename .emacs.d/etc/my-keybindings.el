@@ -35,6 +35,7 @@
 	   :prefix "g"
 	   ("g" . magit-status)
 	   ("RET" . magit-status)
+	   ("b" . magit-blame)
 	   ("s" . my-magit-show-branch))
 
 

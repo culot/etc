@@ -51,6 +51,18 @@
       sml/mule-info nil)
     (sml/setup))
 
+(use-package beacon
+  :ensure t
+  :init (beacon-mode 1)
+  :diminish beacon-mode
+  :bind (:map my-prefix-ui
+	      ("b" . beacon-blink))
+  :config
+    (setq beacon-blink-delay 0.3
+	  beacon-blink-duration 0.3
+	  beacon-blink-when-point-moves-vertically 3
+	  beacon-size 40))
+
 (use-package neotree
   :ensure t
   :bind (:map my-prefix-ui

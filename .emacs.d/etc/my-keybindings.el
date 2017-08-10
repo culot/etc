@@ -36,6 +36,7 @@
 	   ("g" . magit-status)
 	   ("RET" . magit-status)
 	   ("b" . magit-blame)
+           ("l" . magit-log-buffer-file)
 	   ("s" . my-magit-show-branch))
 
 

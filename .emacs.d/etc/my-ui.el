@@ -11,6 +11,17 @@
 	   :map my-prefix
 	   :prefix "u")
 
+(use-package dashboard
+  :ensure t
+  :config
+  (setq
+    dashboard-startup-banner 2
+    dashboard-items '((recents . 20)
+		      (bookmarks . 5)
+		      (projects . 5)
+		      (agenda . 5)))
+  (dashboard-setup-startup-hook))
+
 (use-package ace-window
   :ensure t
   :bind (:map my-prefix
@@ -91,6 +102,8 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 (load-theme 'melancholy t)
+
+;(setq initial-scratch-message "ಠ_ಠ\n\n\n")
 
 (provide 'my-ui)
 ;;; my-ui.el ends here

@@ -22,6 +22,10 @@
 		      (agenda . 5)))
   (dashboard-setup-startup-hook))
 
+(use-package zone
+  :config
+    (zone-when-idle 120))
+
 (use-package ace-window
   :ensure t
   :bind (:map my-prefix

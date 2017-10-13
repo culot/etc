@@ -26,6 +26,12 @@
 ;  :config
 ;    (zone-when-idle 120))
 
+(use-package hl-line
+  :init (global-hl-line-mode 1)
+  :diminish global-hl-line-mode
+  :bind (:map my-prefix-ui
+	      ("h" . global-hl-line-mode)))
+
 (use-package ace-window
   :ensure t
   :bind (:map my-prefix

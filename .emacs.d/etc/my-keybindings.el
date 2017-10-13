@@ -55,7 +55,6 @@
 	   :map my-prefix
 	   :prefix "t"
 	   ("f" . auto-fill-mode)
-	   ("h" . hl-line-mode)
 	   ("r" . rainbow-mode)
 	   ("s" . flyspell-mode))
 

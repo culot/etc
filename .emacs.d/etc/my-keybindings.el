@@ -56,7 +56,8 @@
 	   :prefix "t"
 	   ("f" . auto-fill-mode)
 	   ("r" . rainbow-mode)
-	   ("s" . flyspell-mode))
+	   ("s" . flyspell-mode)
+	   ("w" . delete-trailing-whitespace))
 
 
 (provide 'my-keybindings)

@@ -123,6 +123,7 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/etc")
 (load-theme 'melancholy t)
 
 ;(setq initial-scratch-message "ಠ_ಠ\n\n\n")

@@ -50,16 +50,69 @@
     (eyebrowse-setup-opinionated-keys)
     (setq eyebrowse-new-workspace t))
 
-(use-package smart-mode-line
-  :ensure t
+(use-package telephone-line
   :config
-    (setq
-      column-number-mode t
-      sml/no-confirm-load-theme t
-      sml/shorten-directory t
-      sml/shorten-modes t
-      sml/mule-info nil)
-    (sml/setup))
+    (use-package telephone-line-utils)
+    (setq telephone-line-primary-left-separator 'telephone-line-flat)
+    (setq telephone-line-primary-right-separator 'telephone-line-flat)
+
+  ;; Exclude some buffers in modeline
+  (defvar modeline-ignored-modes nil
+    "List of major modes to ignore in modeline")
+
+  (setq modeline-ignored-modes '("Dashboard"
+                                 "Warnings"
+                                 "Compilation"
+                                 "EShell"
+				 "Term"
+                                 "Debugger"
+                                 "Quickrun"
+                                 "REPL"
+                                 "IELM"
+                                 "Messages"))
+
+  ;; Display modified status
+  (telephone-line-defsegment my-telephone-line-modified-status-segment ()
+    (when (and (buffer-modified-p) (not (member mode-name modeline-ignored-modes)))
+      (propertize "+" 'face `(:foreground "red"))))
+
+    (telephone-line-defsegment* my-telephone-line-buffer-segment ()
+      `(""
+        ,(telephone-line-raw mode-line-buffer-identification t)))
+
+    (telephone-line-defsegment* my-telephone-line-position-segment ()
+      (if (telephone-line-selected-window-active)
+	  (when (not (member mode-name modeline-ignored-modes))
+	    (if (eq major-mode 'paradox-menu-mode)
+		(telephone-line-trim (format-mode-line mode-line-front-space))
+	      '(" %3l,%2c ")))))
+
+    (telephone-line-defsegment* my-telephone-line-vc-segment ()
+      (if (telephone-line-selected-window-active)
+	  (telephone-line-raw vc-mode t)))
+
+    (telephone-line-defsegment* my-telephone-line-major-mode-segment ()
+      (if (telephone-line-selected-window-active)
+	  " /%[%m%]/"))
+
+    (telephone-line-defsegment* my-telephone-line-minor-mode-segment ()
+      (if (telephone-line-selected-window-active)
+	  (telephone-line-raw minor-mode-alist t)))
+
+    (telephone-line-defsegment* my-telephone-line-misc-segment ()
+      (if (telephone-line-selected-window-active)
+	  (eyebrowse-mode-line-indicator)))
+
+    (setq telephone-line-lhs
+	  '((nil . (my-telephone-line-buffer-segment))
+	    (nil . (my-telephone-line-modified-status-segment))))
+    (setq telephone-line-rhs
+	  '((nil . (my-telephone-line-position-segment))
+	    (accent . (my-telephone-line-vc-segment))
+	    (nil . (my-telephone-line-minor-mode-segment))
+	    (nil . (my-telephone-line-major-mode-segment))
+	    (nil . (my-telephone-line-misc-segment))))
+    (telephone-line-mode 1))
 
 (use-package beacon
   :ensure t
@@ -81,7 +134,7 @@
     (setq
        neo-smart-open t
        neo-theme 'nerd))
-  
+
 (menu-bar-mode -1)
 (if (display-graphic-p)
     (progn

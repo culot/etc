@@ -48,6 +48,7 @@
 (require 'my-eshell)
 (require 'my-ide)
 (require 'my-c++)
+(require 'my-go)
 (require 'my-custom)
 
 (provide 'init)

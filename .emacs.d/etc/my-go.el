@@ -10,8 +10,12 @@
   :ensure t
   :defer t
   :config
-  (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'gofmt-before-save))
+  (add-hook 'go-mode-hook
+	    (lambda ()
+	      (add-hook 'before-save-hook 'gofmt-before-save)
+	      (setq gofmt-command "goimports")
+	      (setq tab-width 4)
+	      (setq indent-tabs-mode 1))))
 
 ; Shows type information for variables, functions,
 ; and current argument position of function

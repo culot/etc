@@ -23,16 +23,16 @@
 
 ;--------------------------------------- code-related prefix-c ---
 (bind-keys :prefix-map my-prefix-code
-	   :map my-prefix
 	   :prefix "c"
+	   :map my-prefix
 	   ("c" . compile)
 	   ("w" . global-whitespace-mode))
 
 
 ;---------------------------------------- git-related prefix-g ---
 (bind-keys :prefix-map my-prefix-git
-	   :map my-prefix
 	   :prefix "g"
+	   :map my-prefix
 	   ("g" . magit-status)
 	   ("RET" . magit-status)
 	   ("b" . magit-blame)
@@ -42,8 +42,8 @@
 
 ;------------------------------------------- org-mode prefix-o ---
 (bind-keys :prefix-map my-prefix-org
-	   :map my-prefix
 	   :prefix "o"
+	   :map my-prefix
 	   ("l" . org-store-link)
 	   ("a" . org-agenda)
 	   ("c" . org-capture)
@@ -52,8 +52,8 @@
 
 ;--------------------------------------- text-related prefix-t ---
 (bind-keys :prefix-map my-prefix-text
-	   :map my-prefix
 	   :prefix "t"
+	   :map my-prefix
 	   ("f" . auto-fill-mode)
 	   ("r" . rainbow-mode)
 	   ("s" . flyspell-mode)

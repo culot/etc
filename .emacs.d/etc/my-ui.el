@@ -8,8 +8,8 @@
 
 
 (bind-keys :prefix-map my-prefix-ui
-	   :map my-prefix
-	   :prefix "u")
+	   :prefix "u"
+	   :map my-prefix)
 
 (use-package dashboard
   :ensure t

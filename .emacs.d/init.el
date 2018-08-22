@@ -36,8 +36,6 @@
 
 (eval-when-compile
   (require 'use-package))
-;(require 'diminish)
-(require 'bind-key)
 
 ;; Load personnal configuration
 (add-to-list 'load-path my-dir-etc)

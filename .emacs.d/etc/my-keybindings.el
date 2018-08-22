@@ -18,7 +18,9 @@
 (bind-keys :map my-prefix
 	   ("M-q" . fill-paragraph)
 	   ("k" . describe-personal-keybindings)
-	   ("l" . redraw-display))
+	   ("l" . redraw-display)
+	   ("w" . ace-window)
+	   ("M-w" . ace-window))
 
 
 ;--------------------------------------- code-related prefix-c ---
@@ -58,6 +60,16 @@
 	   ("r" . rainbow-mode)
 	   ("s" . flyspell-mode)
 	   ("w" . delete-trailing-whitespace))
+
+;----------------------------------------- ui-related prefix-u ---
+(bind-keys :prefix-map my-prefix-ui
+	   :prefix "u"
+	   :map my-prefix
+	   ("h" . global-hl-line-mode)
+	   ("k" . eyebrowse-close-window-config)
+	   ("b" . beacon-blink)
+	   ("t" . neotree-toggle))
+
 
 
 (provide 'my-keybindings)

@@ -7,10 +7,6 @@
 ;;; Code:
 
 
-(bind-keys :prefix-map my-prefix-ui
-	   :prefix "u"
-	   :map my-prefix)
-
 (use-package dashboard
   :ensure t
   :config
@@ -28,23 +24,16 @@
 
 (use-package hl-line
   :init (global-hl-line-mode 1)
-  :diminish global-hl-line-mode
-  :bind (:map my-prefix-ui
-	      ("h" . global-hl-line-mode)))
+  :diminish global-hl-line-mode)
 
 (use-package ace-window
   :ensure t
-  :bind (:map my-prefix
-	      ("w" . ace-window)
-	      ("M-w" . ace-window))
   :config
     (setq aw-background nil))
 
 (use-package eyebrowse
   :ensure t
   :demand t
-  :bind (:map my-prefix-ui
-	      ("k" . eyebrowse-close-window-config))
   :config
     (eyebrowse-mode)
     (eyebrowse-setup-opinionated-keys)
@@ -118,8 +107,6 @@
   :ensure t
   :init (beacon-mode 1)
   :diminish beacon-mode
-  :bind (:map my-prefix-ui
-	      ("b" . beacon-blink))
   :config
     (setq beacon-blink-delay 0.3
 	  beacon-blink-duration 0.3
@@ -128,8 +115,6 @@
 
 (use-package neotree
   :ensure t
-  :bind (:map my-prefix-ui
-	      ("t" . neotree-toggle))
   :config
     (setq
        neo-smart-open t

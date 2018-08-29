@@ -22,14 +22,15 @@
   "
 ^Actions^             ^Help
 ^^^^^^^^-----------------------------------------------------------------
-  _M-q_ fill para.    _k_ keybindings
-    _l_ redraw        ^ ^
+  _M-q_ fill para.    _h_ help
+    _l_ redraw        _k_ keybindings
   _M-w_ ace-window    ^ ^
 
 "
 
   ; Most used (and thus accessible) commands
   ("M-q" fill-paragraph)
+  ("h" help)
   ("k" describe-personal-keybindings)
   ("l" redraw-display)
   ("M-w" ace-window)

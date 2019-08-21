@@ -1,0 +1,9 @@
+[submodule ".vim/.vim/pack/lang/start/vim-go"]
+	path = .vim/.vim/pack/lang/start/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule ".vim/pack/lang/start/vim-go"]
+	path = .vim/pack/lang/start/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule ".vim/pack/ui/opt/solarized8"]
+	path = .vim/pack/ui/opt/solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git

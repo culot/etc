@@ -77,16 +77,16 @@ syntax on
 "-----------------------------------------------------------------------------
 "
 " The dark blue for comments is not very readable on black background
-highlight Comment ctermfg=DarkCyan guifg=LightBlue
-
-" Define custum highlight groups
-hi User1 ctermbg=white ctermfg=red         guibg=white guifg=red
-hi User2 ctermbg=white ctermfg=blue        guibg=white guifg=blue
-hi User3 ctermbg=white ctermfg=green       guibg=white guifg=green
-hi User4 ctermbg=white ctermfg=DarkMagenta guibg=white guifg=DarkMagenta
-
-" The 80th column will be highlighted using the following color
-hi ColorColumn ctermfg=darkmagenta ctermbg=black guifg=darkmagenta guibg=black
+"highlight Comment ctermfg=DarkCyan guifg=LightBlue
+"
+"" Define custum highlight groups
+"hi User1 ctermbg=white ctermfg=red         guibg=white guifg=red
+"hi User2 ctermbg=white ctermfg=blue        guibg=white guifg=blue
+"hi User3 ctermbg=white ctermfg=green       guibg=white guifg=green
+"hi User4 ctermbg=white ctermfg=DarkMagenta guibg=white guifg=DarkMagenta
+"
+"" The 80th column will be highlighted using the following color
+"hi ColorColumn ctermfg=darkmagenta ctermbg=black guifg=darkmagenta guibg=black
 
 
 " Global variables {{{1
@@ -96,7 +96,7 @@ set path=$PWD/**
 set tags=./tags;
 
 let g:myStatusStyle = "?"
-let s:mySessionPath = "~/bak/vim/sessions/"
+let s:mySessionPath = "~/LOCAL/BAK/vim/sessions/"
 
 
 " Options {{{1
@@ -366,6 +366,17 @@ function! Own_Style()
     let g:myStatusStyle="own"
 endfun
 
+" Style for Go
+function! Go_Style()
+    setlocal cindent
+    setlocal indentexpr=IgnoreParenIndent()
+    setlocal noexpandtab
+    setlocal shiftwidth=8
+    setlocal tabstop=4
+    let g:myStatusStyle="go"
+endfun
+
+
 " Functions to save current vim session
 " Adapted from:
 " https://github.com/rnaveiras/vim-git-session/blob/master/plugin/git-session.vim
@@ -443,12 +454,12 @@ com! -nargs=1 RunAndPreview :call RunAndPreview("<args>")
 "
 " Useful mappings
 
-" Set Leader to ","
-let mapleader = ","
+"let mapleader = "\<space>"
+map <space> <Leader>
 
 " Use Ctrl+X to save file is edit and command modes
 inoremap <c-x> <c-o>:w<cr>
-nnoremap <c-x> :w<cr>
+nnoremap <c-x> :w<cr>a
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -478,6 +489,39 @@ nmap Q gqap
 nnoremap j gj
 nnoremap k gk
 
+" To quickly switch between buffer, window manager style
+" Meta is not properly handled by the terminal, use C-v M-1 to get the correct
+" key code to use
+nnoremap 1 1gt
+nnoremap 2 2gt
+nnoremap 3 3gt
+nnoremap 4 4gt
+nnoremap 5 5gt
+nnoremap 6 6gt
+nnoremap 7 7gt
+nnoremap 8 8gt
+nnoremap 9 9gt
+
+nnoremap <Leader>1 1gt
+nnoremap <Leader>2 2gt
+nnoremap <Leader>3 3gt
+nnoremap <Leader>4 4gt
+nnoremap <Leader>5 5gt
+nnoremap <Leader>6 6gt
+nnoremap <Leader>7 7gt
+nnoremap <Leader>8 8gt
+nnoremap <Leader>9 9gt
+
+" In insert or command mode, move normally by using Ctrl
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+
 " style ------------------------------------------------------------- ,s ---
 " FreeBSD mapping to switch current buffer to style(9).  This is generally '\f'.
 nmap <silent> <Leader>sf :call FreeBSD_Style()<CR>
@@ -488,13 +532,26 @@ nmap <silent> <Leader>sc :call Cpp_Style()<CR>
 " mapping to switch current buffer to $job style
 nmap <silent> <Leader>sj :call Job_Style()<CR>
 
+" mapping to switch current buffer to Go style
+nmap <silent> <Leader>sg :call Go_Style()<CR>
+
 " revert to my style
 nmap <silent> <Leader>so :call Own_Style()<CR>
 
 " Vim-related ------------------------------------------------------- ,v ---
-" save vim session (to be used with -S next time vim is launched)
-nmap <silent> <Leader>vs :call MySaveCurrentSession()<CR>
+nmap <silent> <Leader>ve :e $MYVIMRC<CR>
+nmap <silent> <Leader>vr :source $MYVIMRC<CR>:echo "vimrc reloaded"<CR>
 nmap <silent> <Leader>vb :call MyToggleBackground()<CR>
+" save vim session (to be used with -S next time vim is launched)
+nmap <silent> <Leader>vss :call MySaveCurrentSession()<CR>
+nmap <silent> <Leader>vso :source &mySessionFileName
+
+" Netrw tree explorer ----------------------------------------------- ,t ---
+nmap <Leader>tt :Lexplore<CR>
+nmap <Leader>t. :Lexplore %:h<CR> " Open current file's directory
+
+" Files ------------------------------------------------------------- ,f ---
+nmap <Leader>fr :browse oldfiles<CR>
 
 " White characters -------------------------------------------------- ,w ---
 " map the TabToggle function (switch between spaces and tabs)
@@ -526,25 +583,20 @@ nmap <Leader>ccp :cprevious<CR>
 nmap <Leader>ch :call SwitchSourceHeader()<CR>
 nmap <Leader>ct :!~/opt/bin/ctags -R --languages=c++ --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
-" Unite --------------------------------------------------------- space ---
-nmap <Space> [unite]
-nnoremap [unite] <nop>
-
-nnoremap <silent> [unite]<space> :<C-u>Unite -start-insert -toggle -auto-resize -buffer-name=mixed file_rec/async:! buffer file_mru bookmark<cr><c-u>
-nnoremap <silent> [unite]f :<C-u>Unite -start-insert -toggle -auto-resize -buffer-name=files file_rec/async:!<cr><c-u>
-nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
-nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
-nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer file_mru<cr>
-nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
-nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
-
+" Go --------------------------------------------------------------- ,g ---
+nmap <Leader>gb :GoBuild<CR>
+nmap <Leader>gr :GoRun<CR>
+nmap <Leader>gi :GoInstall<CR>
+nmap <Leader>gt :GoTest<CR>
+nmap <Leader>gl :GoLint<CR>
+nmap <Leader>g? :GoDoc<CR>
+nmap <Leader>gd :GoDef<CR>
 
 " Indentation {{{1
 "-----------------------------------------------------------------------------
 "
 " Default indentation settings
-call Job_Style()
+call Own_Style()
 
 
 " Abbreviations {{{1
@@ -597,12 +649,12 @@ augroup END
 "-----------------------------------------------------------------------------
 " do not display info on top of netrw window
 let g:netrw_banner = 0
-
 " tree view
 let g:netrw_liststyle = 3
-
 " open tree on left
 let g:netrw_altv = 1
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 15
 
 " unite {{{2
 "-----------------------------------------------------------------------------
@@ -650,16 +702,18 @@ set guioptions-=l  "remove left-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 set guioptions-=b  "remove bottom scroll bar
 set guioptions-=e  "use a console-stype tabs panel
-highlight Normal guibg=Black guifg=White
-set guifont=Source\ Code\ Pro\ Regular\ 10  " use se guifont=* to open a window to choose font
-" set guifont=MiscFixed
+"highlight Normal guibg=Black guifg=White
+"set guifont=Source\ Code\ Pro\ Regular\ 10  " use se guifont=* to open a window to choose font
+"set guifont=Consolas:h11
+"colorscheme solarized
 
 if has('gui_running')
   set cursorline
   colorscheme solarized
 else
-  set t_Co=256
-  colorscheme mustang
+  "set t_Co=256
+  set background=light
+  colorscheme solarized8
 endif 
 
 

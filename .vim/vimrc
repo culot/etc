@@ -195,6 +195,13 @@ function! MySaveCurrentSession()
     echo "Session saved -> " . s:mySessionFileName
 endfun
 
+function! MyLoadSession()
+    let l:mySessionName = input('Session name: ')
+    let s:mySessionFileName = s:SESSIONDIR . l:mySessionName . ".vim"
+	execute "source " . s:mySessionFileName
+	echo "Session loaded -> " . s:mySessionFileName
+endfun
+ 
 function! MyToggleBackground()
     if &background == "light" 
         exe ":se bg=dark"
@@ -297,6 +304,7 @@ nmap <silent> <Leader>vr :source $MYVIMRC<CR>:echo "vimrc reloaded"<CR>
 nmap <silent> <Leader>vb :call MyToggleBackground()<CR>
 " save vim session (to be used with -S next time vim is launched)
 nmap <silent> <Leader>vss :call MySaveCurrentSession()<CR>
+nmap <silent> <Leader>vsl :call MyLoadSession()<CR>
 
 " Netrw tree explorer ----------------------------------------------- ,t ---
 nmap <Leader>tt :Lexplore<CR>

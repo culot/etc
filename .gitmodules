@@ -7,3 +7,6 @@
 [submodule ".vim/pack/ui/opt/solarized8"]
 	path = .vim/pack/ui/opt/solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule ".vim/pack/ui/start/vim-choosewin"]
+	path = .vim/pack/ui/start/vim-choosewin
+	url = https://github.com/t9md/vim-choosewin.git

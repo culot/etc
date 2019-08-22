@@ -7,6 +7,3 @@
 [submodule ".vim/pack/ui/start/ctrlp"]
 	path = .vim/pack/ui/start/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule ".vim/pack/ui/start/which-key"]
-	path = .vim/pack/ui/start/which-key
-	url = https://github.com/liuchengxu/vim-which-key.git

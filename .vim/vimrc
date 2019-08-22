@@ -87,7 +87,7 @@ endif
 let $SWAPDIR = $VIMHOME."/swap"
 set dir=$SWAPDIR
 
-let s:SESSIONDIR = $VIMHOME."/sessions/"
+let s:SESSIONDIR = $VIMHOME."/session/"
 
 " }}}
 

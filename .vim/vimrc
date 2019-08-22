@@ -64,6 +64,7 @@
 "   * lang
 "     - vim-go | https://vimawesome.com/plugin/vim-go-sparks-fly
 "   * ui
+"     - ctrlp | https://vimawesome.com/plugin/ctrlp-vim-everything-has-changed
 "     - solarized8 | https://vimawesome.com/plugin/solarized-8
 "
 " Note: to add new plugins, just add them as submodules like
@@ -322,6 +323,7 @@ nmap <Leader>ccn :cnext<CR>
 nmap <Leader>ccp :cprevious<CR>
 
 " Go --------------------------------------------------------------- ,g ---
+" Requires the vim-go plugin
 nmap <Leader>gb :GoBuild<CR>
 nmap <Leader>gr :GoRun<CR>
 nmap <Leader>gi :GoInstall<CR>
@@ -329,6 +331,9 @@ nmap <Leader>gt :GoTest<CR>
 nmap <Leader>gl :GoLint<CR>
 nmap <Leader>g? :GoDoc<CR>
 nmap <Leader>gd :GoDef<CR>
+
+" CtrlP
+nmap <C-p> :CtrlPMixed<CR>
 
 " }}}
 

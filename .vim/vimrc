@@ -66,6 +66,7 @@
 "   * ui
 "     - ctrlp | https://vimawesome.com/plugin/ctrlp-vim-everything-has-changed
 "     - solarized8 | https://vimawesome.com/plugin/solarized-8
+"     - vim-startify | https://vimawesome.com/plugin/vim-startify
 "
 " Note: to add new plugins, just add them as submodules like
 "       git submodule add https://github.com/fatih/vim-go.git pack/lang/start/vim-go

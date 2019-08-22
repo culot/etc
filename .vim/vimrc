@@ -252,6 +252,9 @@ map <space> <Leader>
 inoremap <c-x> <c-o>:w<cr>
 nnoremap <c-x> :w<cr>a
 
+" Or use the following shortcut
+nnoremap <leader>w :w<CR>
+
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>

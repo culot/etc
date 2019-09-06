@@ -16,3 +16,8 @@ For instance, to get my vim configuration:
 cd ~
 ln -s ~/etc/.vim .
 ```
+
+Note: It is also necessary to fetch all dependent submodules:
+```
+git submodule update --init --recursive
+```

@@ -256,10 +256,6 @@ nnoremap <c-x> :w<cr>a
 " Or use the following shortcut
 nnoremap <leader>w :w<CR>
 
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
-" next search
-nnoremap <C-L> :nohl<CR><C-L>
-
 " Easier formatting of paragraphs (I never use ex-mode)
 vmap Q gq
 nmap Q gqap
@@ -279,12 +275,15 @@ nnoremap <Leader>7 7gt
 nnoremap <Leader>8 8gt
 nnoremap <Leader>9 9gt
 
+nnoremap L gt
+nnoremap H gT
+
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 
-" In insert or command mode, move normally by using Alt
+" In insert or command mode, move normally by using Ctrl-*
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -308,6 +307,9 @@ nmap <silent> <Leader>vb :call MyToggleBackground()<CR>
 " save vim session (to be used with -S next time vim is launched)
 nmap <silent> <Leader>vss :call MySaveCurrentSession()<CR>
 nmap <silent> <Leader>vsl :call MyLoadSession()<CR>
+" Map redraw screen to also turn off search highlighting until the
+" next search
+nmap <silent> <Leader>vl :nohl<CR><C-L>
 
 " Netrw tree explorer ----------------------------------------------- ,t ---
 nmap <Leader>tt :Lexplore<CR>

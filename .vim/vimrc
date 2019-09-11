@@ -249,9 +249,9 @@ endif
 "
 map <space> <Leader>
 
-" Use Ctrl+X to save file is edit and command modes
-inoremap <c-x> <c-o>:w<cr>
-nnoremap <c-x> :w<cr>a
+" Use F1 to save file in edit and command modes
+inoremap <F1> <c-o>:w<cr>
+nnoremap <F1> :w<cr>
 
 " Or use the following shortcut
 nnoremap <leader>w :w<CR>
@@ -263,6 +263,9 @@ nmap Q gqap
 " move by row rather than by line
 nnoremap j gj
 nnoremap k gk
+
+" Delete in insert mode (CTRL-W already defined to delete a word backward)
+inoremap <C-d> <Del>
 
 " To quickly switch between buffer, window manager style
 nnoremap <Leader>1 1gt
@@ -320,18 +323,18 @@ nmap <Leader>fr :browse oldfiles<CR>
 
 " Code ------------------------------------------------------------- ,c ---
 " _c_ompilation
-nmap <Leader>ccm mM :make<CR>
-nmap <Leader>cco :botright :copen 5<CR>
-nmap <Leader>ccc :cclose<CR>
-nmap <Leader>ccn :cnext<CR>
-nmap <Leader>ccp :cprevious<CR>
+nnoremap <Leader>cm mM :make<CR>
+nnoremap <Leader>co :botright :copen 5<CR>
+nnoremap <Leader>cc :cclose<CR>
+nnoremap <Leader>cn :cnext<CR>
+nnoremap <Leader>cp :cprevious<CR>
 
 " Go --------------------------------------------------------------- ,g ---
 " Requires the vim-go plugin
-nmap <Leader>gb :GoBuild<CR>
+nmap <Leader>gb mh:GoBuild<CR> " mark the current point to go back easily
 nmap <Leader>gr :GoRun<CR>
 nmap <Leader>gi :GoInstall<CR>
-nmap <Leader>gt :GoTest<CR>
+nmap <Leader>gt mh:GoTest<CR>
 nmap <Leader>gl :GoLint<CR>
 nmap <Leader>g? :GoDoc<CR>
 nmap <Leader>gd :GoDef<CR>

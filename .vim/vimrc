@@ -179,6 +179,14 @@ function! ChangeTS()
     exe ":se ts=".newTS
 endfun
 
+" Convenient grep function:
+" search for the given pattern in all files with the given extenstion,
+" in the current directory and below hierarchy.
+" Put the results in quickfix list, but without jumping to the 1st result
+function! MyGrep(fext)
+	let l:pattern = input('Search pattern: ')
+	exe ":vimgrep /".pattern."/j ../**/*".a:fext
+endfun
 
 " Functions to save current vim session
 " Adapted from:
@@ -340,6 +348,8 @@ nmap <Leader>gt mh:GoTest<CR>
 nmap <Leader>gl :GoLint<CR>
 nmap <Leader>g? :GoDoc<CR>
 nmap <Leader>gd :GoDef<CR>
+nmap <Leader>gc :GoCoverage<CR> " great feature!
+nmap <Leader>gg :call MyGrep(".go")<CR>
 
 " }}}
 

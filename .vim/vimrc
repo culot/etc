@@ -258,12 +258,9 @@ endif
 " I use <space> as my leader key in normal mode, and <C-space> in insert node
 map <space> <Leader>
 
-" Use F1 to save file in edit and command modes
-inoremap <F1> <c-o>:w<cr>
-nnoremap <F1> :w<cr>
-
-" Or use the following shortcut
+" Shortcuts for often used keys
 nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
 
 " Easier formatting of paragraphs (I never use ex-mode)
 vmap Q gq

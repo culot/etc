@@ -255,6 +255,7 @@ endif
 
 " Mappings {{{
 "
+" I use <space> as my leader key in normal mode, and <C-space> in insert node
 map <space> <Leader>
 
 " Use F1 to save file in edit and command modes
@@ -302,6 +303,12 @@ inoremap <C-l> <Right>
 inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>0
 
+" Insert mode ------------------------------------------------ Ctrl-Space --
+" Specific bindings to save time when in Insert mode
+" The Ctrl-Space leader is used for the following mappings
+" (translated to C-@, use C-v C-Space to check what key is sent)
+inoremap <C-@>w <c-o>:w<cr>
+
 " style ------------------------------------------------------------- ,s ---
 nmap <silent> <Leader>stt :call TabToggle()<CR>
 nmap <silent> <Leader>stw :call ChangeTW()<CR>
@@ -346,6 +353,7 @@ nmap <Leader>gr :GoRun<CR>
 nmap <Leader>gi :GoInstall<CR>
 nmap <Leader>gt mh:GoTest<CR>
 nmap <Leader>gl :GoLint<CR>
+nmap <Leader>gn :GoRename<CR>
 nmap <Leader>g? :GoDoc<CR>
 nmap <Leader>gd :GoDef<CR>
 nmap <Leader>gc :GoCoverage<CR> " great feature!

@@ -359,6 +359,12 @@ nmap <Leader>gd :GoDef<CR>
 nmap <Leader>gc :GoCoverageToggle<CR> " great feature!
 nmap <Leader>gg :call MyGrep(".go")<CR>
 
+" git --------------------------------------------------------------- G ---
+nmap <Leader>Gs :G<CR>
+nmap <Leader>Gp :Gpush<CR>
+nmap <Leader>GP :Gpull<CR>
+nmap <Leader>Gb :Gblame<CR>
+
 " }}}
 
 " Indentation {{{

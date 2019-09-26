@@ -353,7 +353,7 @@ nmap <Leader>gl :GoLint<CR>
 nmap <Leader>gn :GoRename<CR>
 nmap <Leader>g? :GoDoc<CR>
 nmap <Leader>gd :GoDef<CR>
-nmap <Leader>gc :GoCoverage<CR> " great feature!
+nmap <Leader>gc :GoCoverageToggle<CR> " great feature!
 nmap <Leader>gg :call MyGrep(".go")<CR>
 
 " }}}

@@ -10,3 +10,6 @@
 [submodule ".vim/pack/ui/start/startify"]
 	path = .vim/pack/ui/start/startify
 	url = https://github.com/mhinz/vim-startify.git
+[submodule ".vim/pack/dev/start/fugitive"]
+	path = .vim/pack/dev/start/fugitive
+	url = https://github.com/tpope/vim-fugitive.git

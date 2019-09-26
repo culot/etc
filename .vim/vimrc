@@ -55,12 +55,15 @@
 "   2016-02-12 - Add a new style for c++ code
 "   2019-08-21 - Back to vim after a few years with emacs:
 "                vimrc cleanup, a few modules added (see dependencies section)
+"   2019-09-26 - Add fugitive plugin
 "
 " }}}
 
 " Dependencies {{{
 "
 " The following plugins are needed:
+"   * dev
+"     - fugitive | https://github.com/tpope/vim-fugitive
 "   * lang
 "     - vim-go | https://vimawesome.com/plugin/vim-go-sparks-fly
 "   * ui
